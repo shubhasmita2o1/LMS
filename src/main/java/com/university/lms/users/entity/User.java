@@ -56,16 +56,14 @@ public class User extends BaseEntity {
     @Builder.Default
     private Integer failedLoginAttempts = 0;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
+    /**
+     * All role assignments for this user (scoped).
+     * Use this instead of a direct ManyToMany to Role.
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private Set<Role> roles = new HashSet<>();
+    private Set<UserRoleAssignment> roleAssignments = new HashSet<>();
 
-    // Convenience method
     public String getFullName() {
         return firstName + " " + lastName;
     }
