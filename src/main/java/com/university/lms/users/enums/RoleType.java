@@ -1,0 +1,20 @@
+package com.university.lms.users.enums;
+
+public enum RoleType {
+    SUPER_ADMIN,
+    UNIVERSITY_ADMIN,
+    CAMPUS_ADMIN,
+    REGISTRAR,
+    DEAN,
+    HOD,
+    PROGRAM_COORDINATOR,
+    FACULTY,
+    TEACHING_ASSISTANT,
+    STUDENT,
+    PARENT,
+    ACCOUNTANT,
+    LIBRARIAN,
+    EXAMINATION_OFFICER,
+    ADMISSION_OFFICER,
+    PLACEMENT_OFFICER
+}
